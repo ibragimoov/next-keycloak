@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛡️ Next.js + Keycloak Starter
 
-## Getting Started
+Этот проект — пример интеграции Keycloak с приложением на Next.js. Используется `next-auth` для упрощения работы с авторизацией и аутентификацией.
 
-First, run the development server:
+## 📦 Стек технологий
+
+- [Next.js](https://nextjs.org/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Keycloak](https://www.keycloak.org/)
+- [TypeScript](https://www.typescriptlang.org/) (опционально)
+
+---
+
+## 🚀 Быстрый старт
+
+### 1. Клонируй репозиторий
+
+```bash
+git clone https://github.com/ibragimoov/next-keycloak
+cd next-keycloak
+```
+
+### 2. Установка зависимостей
+
+```bash
+npm install
+```
+
+# или
+
+```bash
+yarn install
+```
+
+### 3. Настройка переменных окружения
+
+Создайте файл .env.local в корне проекта на основе .env.example:
+
+```bash
+cp .env.example .env.local
+```
+
+Заполните .env.local соответствующими значениями:
+
+```bash
+# NEXT-AUTH
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
+
+# KEYCLOAK
+KEYCLOAK_URL=
+KEYCLOAK_REALM=
+KEYCLOAK_CLIENT_ID=
+KEYCLOAK_CLIENT_SECRET=
+REFRESH_TOKEN_URL=/protocol/openid-connect/token
+END_SESSION_URL=/protocol/openid-connect/logout
+```
+
+### 4. Запуск приложения
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# или
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Структура проекта
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+.
+├── app
+│ ├── api
+│ │ ├── auth
+│ │ │ ├── [...nextauth]/route.ts # NextAuth Keycloak конфиг
+│ │ │ └── logout/route.ts # Обработка logout
+│ │ ├── http/api.ts # Клиент для REST API
+│ │ └── query-client.ts # Конфигурация QueryClient
+│ ├── dashboard
+│ │ ├── layout.tsx
+│ │ └── page.tsx
+│ ├── login
+│ │ └── page.tsx
+│ ├── layout.tsx # Root layout
+│ └── page.tsx # Главная страница
+├── components
+│ └── ui/ # UI-компоненты
+├── constants
+│ └── index.ts # Константы
+├── lib
+│ ├── auth.ts # Опции для next-auth с Keycloak
+│ └── utils.ts
+├── providers
+│ ├── query-provider-wrapper.tsx # React Query provider
+│ └── session-provider-wrapper.tsx # NextAuth session provider
+├── utils
+│ ├── encryption.ts # Утилиты для шифрования
+│ └── session-token-accessor.ts # Работа с токенами сессии
+├── public
+│ └── favicon.ico
+├── styles
+│ └── globals.css # Стили
+├── .env.example
+├── .env.local
+├── .gitignore
+├── components.json
+├── docker-compose.yml
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+└── README.md
