@@ -26,7 +26,7 @@ cd next-keycloak
 npm install
 ```
 
-# или
+#### или
 
 ```bash
 yarn install
@@ -62,7 +62,7 @@ END_SESSION_URL=/protocol/openid-connect/logout
 npm run dev
 ```
 
-# или
+#### или
 
 ```bash
 yarn dev
