@@ -70,38 +70,39 @@ yarn dev
 
 ### Структура проекта
 
+```bash
 .
 ├── app
-│ ├── api
-│ │ ├── auth
-│ │ │ ├── [...nextauth]/route.ts # NextAuth Keycloak конфиг
-│ │ │ └── logout/route.ts # Обработка logout
-│ │ ├── http/api.ts # Клиент для REST API
-│ │ └── query-client.ts # Конфигурация QueryClient
-│ ├── dashboard
-│ │ ├── layout.tsx
-│ │ └── page.tsx
-│ ├── login
-│ │ └── page.tsx
-│ ├── layout.tsx # Root layout
-│ └── page.tsx # Главная страница
+│   ├── api
+│   │   ├── auth
+│   │   │   ├── [...nextauth]/route.ts      # NextAuth Keycloak конфиг
+│   │   │   └── logout/route.ts             # Обработка logout
+│   │   ├── http/api.ts                     # Клиент для REST API
+│   │   └── query-client.ts                 # Конфигурация QueryClient
+│   ├── dashboard
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── login
+│   │   └── page.tsx
+│   ├── layout.tsx                          # Root layout
+│   └── page.tsx                            # Главная страница
 ├── components
-│ └── ui/ # UI-компоненты
+│   └── ui/                                 # UI-компоненты
 ├── constants
-│ └── index.ts # Константы
+│   └── index.ts                            # Константы
 ├── lib
-│ ├── auth.ts # Опции для next-auth с Keycloak
-│ └── utils.ts
+│   ├── auth.ts                             # Опции для next-auth с Keycloak
+│   └── utils.ts
 ├── providers
-│ ├── query-provider-wrapper.tsx # React Query provider
-│ └── session-provider-wrapper.tsx # NextAuth session provider
+│   ├── query-provider-wrapper.tsx         # React Query provider
+│   └── session-provider-wrapper.tsx       # NextAuth session provider
 ├── utils
-│ ├── encryption.ts # Утилиты для шифрования
-│ └── session-token-accessor.ts # Работа с токенами сессии
+│   ├── encryption.ts                       # Утилиты для шифрования
+│   └── session-token-accessor.ts           # Работа с токенами сессии
 ├── public
-│ └── favicon.ico
+│   └── favicon.ico
 ├── styles
-│ └── globals.css # Стили
+│   └── globals.css                         # Стили
 ├── .env.example
 ├── .env.local
 ├── .gitignore
@@ -111,3 +112,5 @@ yarn dev
 ├── next-env.d.ts
 ├── next.config.ts
 └── README.md
+
+```
