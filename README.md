@@ -26,7 +26,7 @@ cd next-keycloak
 npm install
 ```
 
-#### или
+# или
 
 ```bash
 yarn install
@@ -103,14 +103,4 @@ yarn dev
 │   └── favicon.ico
 ├── styles
 │   └── globals.css                         # Стили
-├── .env.example
-├── .env.local
-├── .gitignore
-├── components.json
-├── docker-compose.yml
-├── eslint.config.mjs
-├── next-env.d.ts
-├── next.config.ts
-└── README.md
-
 ```
